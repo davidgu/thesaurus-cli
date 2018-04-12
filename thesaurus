@@ -4,14 +4,25 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 search_term=sys.argv[1]
+search_term = search_term.replace(' ', '%20')
 
-fp = urllib.request.urlopen('http://www.thesaurus.com/browse/'+search_term)
+# Check for invalid word resulting in HTTPError
+try:
+    fp = urllib.request.urlopen('http://www.thesaurus.com/browse/'+search_term)
+except urllib.error.HTTPError:
+    print('The word '+search_term+' could not be found')
+    exit()
+
 html_bytes = fp.read()
 html_doc = html_bytes.decode('utf-8')
 fp.close()
 
 soup = BeautifulSoup(html_doc, 'html.parser')
 synonyms = soup.find_all("div",{"class":"synonyms"})
+# Check again for an invalid word which may have returned a valid HTTP response
+if(len(synonyms)==0):
+    print('The word '+search_term+' could not be found')
+    exit()
 
 thesarus={}
 
