@@ -9,23 +9,21 @@ this CLI is unquestionably, unconditionally, the superlative solution.
 
 ### Prerequisites
 
-Python 3 and BeautifulSoup must be installed. They can be installed as follows:
+Python 3 and pip must be installed. They can be installed as follows:
 
 ```
 apt-get install python3
-pip install beautifulsoup4
+apt-get install pip3
 ```
+
+Other dependencies such as BeautifulSoup will be installed by pip.
 
 ### Installing
 
-Distribution through pip will be added shortly. For now, since the entire script is self-contained
-and quite small, just download the thesaurus-cli repo and copy the script to a directory on your PATH.
-I have my installation in my ~/bin/ directory.
+Thesaurus-cli can be installed through pip:
 
 ```
-git clone https://github.com/davidgu/thesaurus-cli.git
-cd thesaurus-cli
-mv thesaurus ~/bin/
+pip install thesaurus-cli
 ```
 
 ### Using
@@ -33,7 +31,7 @@ Thesaurus-cli takes a single argument, the word that is being searched. For exam
 for "well"
 
 ```
-./thesaurus-cli well
+thesaurus well
 ```
 
 You will be able to select a specific definition for the searched word
