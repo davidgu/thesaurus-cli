@@ -4,6 +4,11 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 def main():
+    # Check if arguments were supplied
+    if len(sys.argv) < 2:
+        print('Please include a search term.')
+        exit()
+
     search_term=sys.argv[1]
     search_term = search_term.replace(' ', '%20')
 
