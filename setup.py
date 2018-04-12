@@ -18,7 +18,6 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/davidgu/thesaurus-cli',
     author='David Gu',
-    keywords='sample setuptools development',
     py_modules=["thesaurus"],
     install_requires=['beautifulsoup4'],
     entry_points={
